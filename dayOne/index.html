@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //  my solution starts here 
+        const now = new Date()
+        const today = now.getDay()
+        console.log(today);
+        
+        const hr = now.getHours()
+        const mn = now.getMinutes()
+        const sc = now.getSeconds()
+
+        let day;
+
+        if(today == 0 ){
+            day = "Sunday"
+        }else if (today == 1) {
+            day = "Monday";
+        } else if (today == 2) {
+            day = "Tuesday";
+        } else if (today == 3) {
+            day = "Wednesday";
+        } else if (today == 4) {
+            day = "Thrusday"
+        } else if (today == 5) {
+            day = "Friday"
+        } else if (today == 6) {
+            day = "Saturday"
+        }
+        const prepandTwo =  hr >= 12 ? "PM" : "AM"
+
+        console.log(`Today is: ${day}`)
+        console.log(`Current Time is: ${hr}${prepandTwo}:${mn}:${sc} `)
+        // my solution ends here
+
+
+
+        let today2 = new Date();
+
+        let day2 = today2.getDay()
+
+        let dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday"];
+
+        console.log(`Today is: ${dayList[day2]}.`)
+
+        let hour = today2.getHours()
+        const minutes = today2.getMinutes()
+        const seconds = today2.getSeconds()
+
+        const prepand = (hour >= 12) ? " PM " : " AM ";
+
+        hour = (hour > 12) ? hour - 12 : hour;
+
+        if (hour === 0 && prepand === ' PM ') {
+            if (minutes === 0 && second === 0) {
+                hour = 12;
+                prepand = ' Noon';
+            } else {
+                hour = 12;
+                prepand = ' PM';
+            }
+        }
+
+        // Check for special cases when hour is 0
+        if (hour === 0 && prepand === ' AM ') {
+            if (minutes === 0 && second === 0) {
+                hour = 12;
+                prepand = ' Midnight';
+            } else {
+                hour = 12;
+                prepand = ' AM';
+            }
+        }
+
+        console.log(`Current Time: ${hour} ${prepand}: ${minutes}: ${seconds}`);
+        
+    </script>
+</body>
+
+</html>
